@@ -1,5 +1,6 @@
 package CeciliaInezRevaJSleepRJ;
 
+
 /**
  * Write a description of class JSleep here.
  *
@@ -8,27 +9,51 @@ package CeciliaInezRevaJSleepRJ;
  */
 public class JSleep
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class JSleep
-     */
-    public JSleep()
-    {
-        // initialise instance variables
-        x = 0;
+    public static void main(String[] args){
+        
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    
+    public static int getHotelId(){
+        return 0;
+    }
+    
+    public static String getHotelName(){
+        return "hotel";
+    }
+    
+    public static boolean isDiscount(){
+        return true;
+    }
+    
+    public static float getDiscountPercentage(int beforeDiscount, int afterDiscount){
+        if (beforeDiscount > afterDiscount) {
+            return (((beforeDiscount - afterDiscount) / beforeDiscount) *100);
+        }
+        else
+            return 0;
+    }
+    
+    public static int getDiscountedPrice(int price, float discountPercentage){
+        if (discountPercentage > 100) {
+            return 0;
+        }
+        return (int) (((100 - discountPercentage) / 100) * price);
+    }
+    
+    public static int getOriginalPrice(int discountedPrice, float discountPercentage){
+        return (discountedPrice * (100 / (100 - discountPercentage)));
+    }
+    
+    public float getAdminFeePercentage(){
+        return 0.05f;
+    }
+    
+    public int getAdminFee(int price){
+        return price * getAdminFeePercentage();
+    }
+    
+    public static int getTotalPrice(int price, int numberOfNight){
+        int total = numberOfNight * price;
+        return (itotal + (total * getAdminFeePercentage()));
     }
 }
