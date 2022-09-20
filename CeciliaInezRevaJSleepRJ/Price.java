@@ -32,7 +32,7 @@ public class Price{
         }
 
         double diskon = this.price * this.discount/100;
-        return this.price-diskon;
+        return this.price - diskon;
     }
 
     private double getRebatedPrice() {
