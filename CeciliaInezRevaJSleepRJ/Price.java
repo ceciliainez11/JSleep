@@ -24,21 +24,23 @@ public class Price{
     }
     
     private double getDiscountedPrice() {
-        if(this.discount >= 100) {
+        
+        if(this.discount > 100) {
             this.discount = 100;
-        }
-        if(this.discount == 100){
+        } else if (this.discount == 100){
             return 0;
-        }else {
-            return this.price - (this.price * this.discount);
         }
+
+        double diskon = this.price * this.discount/100;
+        return this.price-diskon;
     }
 
     private double getRebatedPrice() {
-        if(this.rebate >= price) {
-            return price;
-        } else {
-            return this.price - (this.price * this.rebate);
+        if(this.rebate > this.price) {
+            this.rebate = this.price;
+        } else if (this.rebate == this.price){
+            return 0;
         }
+        return this.price - this.rebate;
     }
 }
