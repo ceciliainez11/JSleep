@@ -1,15 +1,40 @@
 package CeciliaInezRevaJSleepRJ;
 
+/**
+ * Praktikum OOP - Tutam.
+ *
+ * @author (Cecilia Inez Reva Manurung)
+ *          NPM: 2106636994
+ * @version (22 Sept 2022)
+ */
+
 public class Price{
+    // public double rebate;
+    // public int discount;
     public double price;
-    public double rebate;
-    public int discount;
+    public double discount;
     
     public Price(double price) {
-        this.price = price;
-        this.rebate = 0;
+        //this.price = price;
+        //this.rebate = 0;
     }
+    
+    public Price(double price, double discount) {
+        
+    }
+    
+    /*private double getDiscountedPrice() {
+        
+        if(this.discount > 100) {
+            this.discount = 100;
+        } else if (this.discount == 100){
+            return 0;
+        }
 
+        double diskon = (this.price * this.discount)/100;
+        return this.price-diskon;
+    }
+    
     public Price(double price, int discount) {
         this.price = price;
         this.discount = discount;
@@ -21,18 +46,6 @@ public class Price{
         this.rebate = rebate;
         this.discount = 0;
     }
-    
-    private double getDiscountedPrice() {
-        
-        if(this.discount > 100) {
-            this.discount = 100;
-        } else if (this.discount == 100){
-            return 0;
-        }
-
-        double diskon = (this.price * this.discount)/100;
-        return this.price-diskon;
-    }
 
     private double getRebatedPrice() {
         if(this.rebate > this.price) {
@@ -41,5 +54,5 @@ public class Price{
             return 0;
         }
         return this.price - this.rebate;
-    }
+    }*/
 }
