@@ -7,7 +7,6 @@ public class Price{
     
     public Price(double price) {
         this.price = price;
-        this.discount = 0;
         this.rebate = 0;
     }
 
@@ -19,7 +18,7 @@ public class Price{
     
     public Price(double price, double rebate) {
         this.price = price;
-        this.discount = discount;
+        this.rebate = rebate;
         this.discount = 0;
     }
     
@@ -31,13 +30,13 @@ public class Price{
             return 0;
         }
 
-        double diskon = this.price * this.discount/100;
-        return this.price - diskon;
+        double diskon = (this.price * this.discount)/100;
+        return this.price-diskon;
     }
 
     private double getRebatedPrice() {
         if(this.rebate > this.price) {
-            this.rebate = this.price;
+            this.price = this.rebate;
         } else if (this.rebate == this.price){
             return 0;
         }

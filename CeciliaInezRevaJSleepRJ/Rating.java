@@ -1,8 +1,8 @@
 package CeciliaInezRevaJSleepRJ;
 
 public class Rating {
-    public long total;
-    public long count;
+    private long total;
+    private long count;
     
     public Rating() {
         this.total = 0;
@@ -10,19 +10,22 @@ public class Rating {
     }
 
     public void insert(int rating) {
-        rating += total;
-        count ++;
+        this.total += rating;
+        this.count++;
     }
     
     public double getAverage() {
-        return total/count;
+        if(this.count == 0){
+            return 0;
+        }
+        return this.total/this.count;
     }
     
     public long getCount() {
-        return count;
+        return this.count;
     }
 
     public long getTotal() {
-        return total;
+        return this.total;
     }
 }
