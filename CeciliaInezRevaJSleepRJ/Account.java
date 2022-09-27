@@ -5,10 +5,10 @@ package CeciliaInezRevaJSleepRJ;
  *
  * @author (Cecilia Inez Reva Manurung)
  *          NPM: 2106636994
- * @version (22 Sept 2022)
+ * @version (27 Sept 2022)
  */
 
-public class Account
+public class Account extends Serializable
 {
     // instance variables
     public String name;
@@ -18,8 +18,11 @@ public class Account
     /**
      * Constructor for objects of class Account
      */
-    public Account()
+    public Account(int id, String name, String email, String password)
     {
-        // initialise instance variables
+        super(id);
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 }

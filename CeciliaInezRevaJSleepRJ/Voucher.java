@@ -6,28 +6,26 @@ package CeciliaInezRevaJSleepRJ;
  *
  * @author (Cecilia Inez Reva Manurung)
  *          NPM: 2106636994
- * @version (22 Sept 2022)
+ * @version (27 Sept 2022)
  */
-
-public class Voucher
+public class Voucher extends Serializable
 {
     // instance variables
-    public Type type;
-    public double cut;
     public String name;
-    public int code;
-    public double minimum;
     private boolean used;
+    public int code;
+    public Type type;
+    public double minimum;
+    public double cut;
 
-    /**
-     * Constructor for objects of class Voucher
-     */
-    public Voucher(String name, int code, Type type, double minimum, double cut)
+    public Voucher(int id, String name, int code, Type type, double minimum, double cut)
     {
         // initialise instance variables
+        super(id);
         this.type = type;
         this.cut = cut;
         this.name = name;
+        this.used = used;
         this.code = code;
         this.cut = cut;
         this.minimum = minimum;
