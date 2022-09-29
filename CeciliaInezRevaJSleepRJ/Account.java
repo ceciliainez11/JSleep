@@ -1,11 +1,11 @@
 package CeciliaInezRevaJSleepRJ;
 
 /**
- * Praktikum OOP - CS.
+ * Praktikum OOP - TUTAM.
  *
  * @author (Cecilia Inez Reva Manurung)
  *          NPM: 2106636994
- * @version (27 Sept 2022)
+ * @version
  */
 
 public class Account extends Serializable
@@ -24,5 +24,10 @@ public class Account extends Serializable
         this.name = name;
         this.email = email;
         this.password = password;
+    }
+    
+    public String toString()
+    {
+        return "\n\nID: " + id + "\nName: " + name + "\nEmail: " + email + "\nPassword: " + password;
     }
 }

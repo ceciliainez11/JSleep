@@ -4,14 +4,8 @@ public class Rating {
     private long total;
     private long count;
     
-    public Rating() {
-        this.total = 0;
-        this.count = 0;
-    }
-
-    public void insert(int rating) {
-        this.total += rating;
-        this.count++;
+    public long getTotal() {
+        return this.total;
     }
     
     public double getAverage() {
@@ -24,8 +18,19 @@ public class Rating {
     public long getCount() {
         return this.count;
     }
-
-    public long getTotal() {
-        return this.total;
+    
+    public String toString()
+    {
+        return "Count: " + count + "\nTotal: " + total;
+    }
+    
+    public void insert(int rating) {
+        this.total += rating;
+        this.count++;
+    }
+    
+    public Rating() {
+        this.total = 0;
+        this.count = 0;
     }
 }

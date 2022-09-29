@@ -5,7 +5,7 @@ package CeciliaInezRevaJSleepRJ;
  *
  * @author (Cecilia Inez Reva Manurung)
  *          NPM: 2106636994
- * @version (22 Sept 2022)
+ * @version
  */
 
 public class Price{
@@ -15,12 +15,18 @@ public class Price{
     public double discount;
     
     public Price(double price) {
-        //this.price = price;
-        //this.rebate = 0;
+        this.price = price;
+        this.discount = 0;
     }
     
     public Price(double price, double discount) {
-        
+        this.price = price;
+        this.discount = discount;
+    }
+    
+    public String toString()
+    {
+        return "Price: " + price + "\nDiscount: " + discount;
     }
     
     /*private double getDiscountedPrice() {

@@ -6,18 +6,28 @@ package CeciliaInezRevaJSleepRJ;
  *
  * @author (Cecilia Inez Reva Manurung)
  *          NPM: 2106636994
- * @version (27 Sept 2022)
+ * @version
  */
 public class Invoice extends Serializable
 {
     // instance variables - replace the example below with your own
-    public int buyerId;
+    public PaymentStatus status;
     public int renterId;
+    public RoomRating rating;
+    public int buyerId;
     public String time;
+   // public int renterId;
 
-    /**
-     * Constructor for objects of class Invoice
-     */
+    public enum RoomRating
+    {
+        NONE, BAD, NEUTRAL, GOOD
+    }
+    
+    public enum PaymentStatus
+    {
+        FAILED, WAITING, SUCCESS
+    }
+    
     protected Invoice(int id, int buyerId, int renterId, String time)
     {
         // initialise instance variables
@@ -25,6 +35,8 @@ public class Invoice extends Serializable
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.time = time;
+        this.rating = RoomRating.NONE;
+        this.status = PaymentStatus.WAITING;
     }
 
     public Invoice(int id, Account buyer, Renter renter, String time)
@@ -33,10 +45,12 @@ public class Invoice extends Serializable
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.time = time;
+        this.rating = RoomRating.NONE;
+        this.status = PaymentStatus.WAITING;
     }
     
     public String print()
     {
-        return "\nTime= " + time + "\nbuyerId=" + buyerId + "\nRenterId=" + renterId;
+        return "\nTime= " + time + "\nBuyerId=" + buyerId + "\nRenterId=" + renterId;
     }
 }
