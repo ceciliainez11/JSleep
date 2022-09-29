@@ -25,7 +25,7 @@ public class Payment extends Invoice
     
     public String print()
     {
-        return "From:" + this.from + "\n" + "To:" + this.to + "\n" + "Room ID:" + this.roomId;
+        return "To=" + "\nfrom=" + from + "\nRoomId=" + roomId;
     }
     
     public int getRoomId()

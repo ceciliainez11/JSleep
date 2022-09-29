@@ -18,7 +18,7 @@ public class Voucher extends Serializable
     public double minimum;
     public double cut;
 
-    public Voucher(int id, String name, int code, Type type, double minimum, double cut)
+    public Voucher(int id, String name, int code, Type type, boolean used, double minimum, double cut)
     {
         // initialise instance variables
         super(id);
@@ -27,17 +27,20 @@ public class Voucher extends Serializable
         this.name = name;
         this.used = used;
         this.code = code;
-        this.cut = cut;
         this.minimum = minimum;
+    }
+    
+    public boolean isUsed()
+    {
+        return used;
     }
 
     public boolean canApply(Price price)
     {
-        if(price.price > this.minimum && this.used == false) {
+        if(price.price > minimum && used == false) {
             return true;
-        } else {
+        } else
             return false;
-        }
     }
     
     public double apply(Price price)
@@ -55,10 +58,5 @@ public class Voucher extends Serializable
             }
             return price.price-cut;
         }
-    }
-    
-    public boolean isUsed()
-    {
-        return this.used;
     }
 }

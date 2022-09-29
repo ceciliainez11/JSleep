@@ -1,7 +1,7 @@
 package CeciliaInezRevaJSleepRJ;
 
 /**
- * Praktikum OOP - Tutam.
+ * Praktikum OOP - CS.
  *
  * @author (Cecilia Inez Reva Manurung)
  *          NPM: 2106636994

@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=Voucher
 comment0.text=\r\n\ Praktikum\ OOP\ -\ Tutam.\r\n\r\n\ @author\ (Cecilia\ Inez\ Reva\ Manurung)\r\n\ \ \ \ \ \ \ \ \ \ NPM\:\ 2106636994\r\n\ @version\ (27\ Sept\ 2022)\r\n
-comment1.params=id\ name\ code\ type\ minimum\ cut
-comment1.target=Voucher(int,\ java.lang.String,\ int,\ Type,\ double,\ double)
-comment2.params=price
-comment2.target=boolean\ canApply(Price)
+comment1.params=id\ name\ code\ type\ used\ minimum\ cut
+comment1.target=Voucher(int,\ java.lang.String,\ int,\ Type,\ boolean,\ double,\ double)
+comment2.params=
+comment2.target=boolean\ isUsed()
 comment3.params=price
-comment3.target=double\ apply(Price)
-comment4.params=
-comment4.target=boolean\ isUsed()
+comment3.target=boolean\ canApply(Price)
+comment4.params=price
+comment4.target=double\ apply(Price)
 numComments=5

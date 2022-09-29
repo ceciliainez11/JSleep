@@ -18,10 +18,12 @@ public class Invoice extends Serializable
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, int buyerId, int renterId, String time)
+    protected Invoice(int id, int buyerId, int renterId, String time)
     {
         // initialise instance variables
         super(id);
+        this.buyerId = buyerId;
+        this.renterId = renterId;
         this.time = time;
     }
 
@@ -35,6 +37,6 @@ public class Invoice extends Serializable
     
     public String print()
     {
-        return "Buyer ID:" + this.buyerId + "\n" + "Renter ID:" + this.renterId + "\n" + "time" + this.time + "\n";
+        return "\nTime= " + time + "\nbuyerId=" + buyerId + "\nRenterId=" + renterId;
     }
 }
