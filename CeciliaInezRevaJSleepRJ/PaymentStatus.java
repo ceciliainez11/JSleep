@@ -2,10 +2,9 @@ package CeciliaInezRevaJSleepRJ;
 
 
 /**
- * Enumeration class PaymentStatus - write a description of the enum class here
+ * Praktikum CS OOP Modul 4
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author (Cecilia Inez Reva M. - 2106636994)
  */
 public enum PaymentStatus
 {

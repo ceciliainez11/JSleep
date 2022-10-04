@@ -6,7 +6,9 @@ package CeciliaInezRevaJSleepRJ;
  *
  * @author (Cecilia Inez Reva M. - 2106636994)
  */
-public enum RoomRating
+
+public interface FileParser
 {
-    NONE, BAD, NEUTRAL, GOOD
+    public boolean read(String content);
+    public Object write();
 }

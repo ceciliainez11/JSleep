@@ -8,7 +8,7 @@ package CeciliaInezRevaJSleepRJ;
  * @version
  */
 
-public class Account extends Serializable
+public class Account extends Serializable implements FileParser
 {
     // instance variables
     public String name;
@@ -29,5 +29,13 @@ public class Account extends Serializable
     public String toString()
     {
         return "\n\nID: " + id + "\nName: " + name + "\nEmail: " + email + "\nPassword: " + password;
+    }
+    
+    public boolean read(String Content){
+        return false;
+    }
+
+    public Object write(){
+        return null;
     }
 }

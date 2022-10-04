@@ -26,7 +26,7 @@ public class Price{
     
     public String toString()
     {
-        return "Price: " + price + "\nDiscount: " + discount;
+        return "" + price; //"\nDiscount: " + discount;
     }
     
     /*private double getDiscountedPrice() {
