@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Payment
 comment1.params=from\ to\ room
-comment1.target=boolean\ availability(java.util.Date,\ java.util.Date,\ Room)
+comment1.target=boolean\ makeBooking(java.util.Date,\ java.util.Date,\ Room)
 comment2.params=from\ to\ room
-comment2.target=boolean\ makeBooking(java.util.Date,\ java.util.Date,\ Room)
+comment2.target=boolean\ availability(java.util.Date,\ java.util.Date,\ Room)
 comment3.params=
 comment3.target=java.lang.String\ getTime()
 comment4.params=

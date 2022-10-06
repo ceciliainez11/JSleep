@@ -11,19 +11,6 @@ public class Payment extends Invoice
     public Date from;
     private int roomId;
     
-    public static boolean availability(Date from, Date to, Room room)
-    {
-        if(from.after(to)){
-            return false;
-        }
-        for(Date i : room.booked){
-            if(from.compareTo(i) == 0){
-                return false;
-            }
-        }
-        return true;
-    }
-    
     public static boolean makeBooking(Date from, Date to, Room room)
     {
         SimpleDateFormat SDFormat = new SimpleDateFormat("dd MMMM yyyy");
@@ -46,6 +33,19 @@ public class Payment extends Invoice
         }else{
             return false;
         }
+    }
+    
+    public static boolean availability(Date from, Date to, Room room)
+    {
+        if(from.after(to)){
+            return false;
+        }
+        for(Date i : room.booked){
+            if(from.compareTo(i) == 0){
+                return false;
+            }
+        }
+        return true;
     }
     
     public String getTime()

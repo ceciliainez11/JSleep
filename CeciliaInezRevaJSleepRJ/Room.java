@@ -13,6 +13,18 @@ public class Room extends Serializable implements FileParser
     public Facility facility;
     public String name;
     
+    public Object write() {
+        return null;
+    }
+    
+    public boolean read(String content) {
+        return false;
+    }
+    
+    public String toString(){
+        return "\nName: " + this.name + "\nAddress: " + this.address + "\nSize: " + this.size + "\nFacility: " + this.facility + "\nBed Type: " + this.bedType + "\nCity: " + this.city  + this.price;    
+    }
+    
     public Room (int id, String name, int size, Price price, Facility facility, City city, String address){
        super(id);
        this.name = name;
@@ -24,17 +36,5 @@ public class Room extends Serializable implements FileParser
        this.bedType = BedType.SINGLE;
        this.booked = new ArrayList<Date>();
        
-    }
-    
-    public Object write() {
-        return null;
-    }
-    
-    public boolean read(String content) {
-        return false;
-    }
-    
-    public String toString(){
-        return "\nName: " + this.name + "\nAddress: " + this.address + "\nSize: " + this.size + "\nFacility: " + this.facility + "\nBed Type: " + this.bedType + "\nCity: " + this.city  + this.price;    
     }
 }
