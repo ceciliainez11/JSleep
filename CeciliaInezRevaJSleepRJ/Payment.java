@@ -1,31 +1,63 @@
 package CeciliaInezRevaJSleepRJ;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.text.*;
+import java.util.concurrent.TimeUnit;
 
 public class Payment extends Invoice
 {
-    // instance variables - replace the example below with your own
-    public Calendar to;
-    public Calendar from;
+    public Date to;
+    public Date from;
     private int roomId;
-
-    public Payment(int id, int buyerId, int renterId, int roomId)
+    
+    public static boolean availability(Date from, Date to, Room room)
     {
-        super(id, buyerId, renterId);
-        this.to = Calendar.getInstance();
-        to.add(Calendar.DATE,2);
-        this.from = Calendar.getInstance();
-        this.roomId = roomId;
+        if(from.after(to)){
+            return false;
+        }
+        for(Date i : room.booked){
+            if(from.compareTo(i) == 0){
+                return false;
+            }
+        }
+        return true;
     }
     
-    public Payment(int id, Account buyer, Renter renter, int roomId)
+    public static boolean makeBooking(Date from, Date to, Room room)
     {
-        super(id, buyer, renter);
-        this.to = Calendar.getInstance();
-        to.add(Calendar.DATE,2);
-        this.from = Calendar.getInstance();
-        this.roomId = roomId;
+        SimpleDateFormat SDFormat = new SimpleDateFormat("dd MMMM yyyy");
+        String formattedFrom = SDFormat.format(from.getTime());
+        String formattedTo = SDFormat.format(to.getTime());
+        Calendar c = Calendar.getInstance();
+        c.setTime(from);
+        long fromInt = from.getTime();
+        long toInt = to.getTime();
+        long timeDiff = Math.abs(fromInt - toInt);
+        long daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
+        
+        if(availability(from, to, room)){
+            for(int i = 0; i < daysDiff; i++){
+                c.add(Calendar.DATE, i+1);
+                from = c.getTime();
+                room.booked.add(from);
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public String getTime()
+    {
+        SimpleDateFormat SDFormat = new SimpleDateFormat("'Formatted Date = 'dd MMMM yyyy");
+        String formattedFrom = SDFormat.format(from.getTime());
+        return formattedFrom;
+    }
+    
+    public String print()
+    {
+        return ("Room ID: " + this.roomId + "\n"+ "Payment from: " + this.from + "\n" + "Payment to: " + this.to + "\n");
     }
     
     public int getRoomId()
@@ -33,23 +65,19 @@ public class Payment extends Invoice
         return roomId;
     }
     
-    public String getTime()
+    public Payment(int id, Account buyer, Renter renter, int roomId, Date from, Date to)
     {
-        SimpleDateFormat formattedTime = new SimpleDateFormat("dd MMMM yyyy");
-        String strTime = formattedTime.format(this.time.getTime());
-        return strTime + "\n\nFormatted Date: " + strTime;
+        super(id, buyer, renter);
+        this.from = from;
+        this.to = to;
+        this.roomId = roomId;
     }
-    
-    public String getDuration()
+
+    public Payment(int id, int buyerId, int renterId, int roomId, Date from, Date to)
     {
-        SimpleDateFormat formattedTime = new SimpleDateFormat("dd MMMMM yyyy");
-        String strFrom = formattedTime.format(this.from.getTime());
-        String strTo = formattedTime.format(this.to.getTime());
-        return strFrom + " - " + strTo;
-    }
-    
-    public String print()
-    {
-        return "Room ID: " + roomId + "\nFrom: " + from + "\nto: " + to;
+        super(id, buyerId, renterId);
+        this.from = from;
+        this.to = to;
+        this.roomId = roomId;
     }
 }

@@ -11,24 +11,27 @@ import java.util.ArrayList;
 
 public class Validate
 {
-    public static ArrayList filter(Price[]list, int value, boolean less)
+    public static ArrayList filter (Price[] list, int value, boolean less)
     {
-        ArrayList<Price> harga = new ArrayList <Price>();
-        if(less){
-            for(Price i : list){
-                if(i.price <= value){
-                    harga.add(i);
+        ArrayList<Double> filterResults = new ArrayList<Double>();
+        if(less == true) {
+            for (int i = 0; i < list.length ; i++){
+                if(list[i].price <= value){
+                    filterResults.add(list[i].price);
+                }
+            }
+        }else{
+            for (int i = 0; i < list.length ; i++){
+                if (list[i].price > value){
+                    filterResults.add(list[i].price);
                 }
             }
         }
-        else
-        {
-            for(Price i : list){
-                if(i.price > value){
-                    harga.add(i);
-                }
-            }
-        }
-        return harga;
+        return filterResults;
+    }
+    
+    public Validate()
+    {
+        //
     }
 }

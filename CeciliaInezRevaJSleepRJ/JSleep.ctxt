@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.target=JSleep
 comment0.text=\r\n\ Praktikum\ OOP\ -\ CS.\r\n\r\n\ @author\ (Cecilia\ Inez\ Reva\ Manurung)\r\n\ \ \ \ \ \ \ \ \ \ NPM\:\ 2106636994\r\n\ @version\ (21\ Sept\ 2022)\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment1.params=
+comment1.target=Room\ createRoom()
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+numComments=3
