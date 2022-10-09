@@ -5,6 +5,10 @@ package CeciliaInezRevaJSleepRJ;
  *
  * @author (Cecilia Inez Reva Manurung)
  *          NPM: 2106636994
+<<<<<<< HEAD
+=======
+ * @version
+>>>>>>> c35a68e67ac992291ad6100c80e686811cbbc6b2
  */
 
 public class Price{
