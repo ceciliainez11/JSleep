@@ -5,7 +5,6 @@ package CeciliaInezRevaJSleepRJ;
  *
  * @author (Cecilia Inez Reva Manurung)
  *          NPM: 2106636994
- * @version
  */
 
 public class Account extends Serializable implements FileParser

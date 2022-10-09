@@ -38,9 +38,8 @@ public class JSleep
         //Date start = Date.valueOf("2022-8-20");
         //Date end = Date.valueOf("2022-8-15");
         //System.out.println(Payment.makeBooking(start, end,RoomA));
-        
-        
-        
+
+
         /*Room theroom = createRoom();
         
         System.out.println("Make a room");
