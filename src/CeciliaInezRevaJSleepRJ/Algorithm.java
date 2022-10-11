@@ -10,106 +10,151 @@ package CeciliaInezRevaJSleepRJ;
 
 import java.util.Iterator;
 import java.util.Arrays;
-import java.util.function.Predicate;
 
-private class Algorithm{
-    public static <T> int count(Iterator<T>, iterator, T value)
-    {
-        final Predicate <T> pred = value::equals;
-        return count (iterator, pred);
-    }
-    public static <T> int count(T[] array, T value)
-    {
-        final Iterator <T> it = Arrays.stream(array).iterator();
-        return count (it, value);
-    }
-    public static <T> int count(Iterable<T> iterable, Predicate<T> pred)
-    {
-        final Iterator<T> it = Arrays.stream(array).iterator();
-        return count (it, pred);
-    }
-    public static <T> int count(T[] array, Predicate<T> pred)
-    {
-        final Iterator<T> it = Arrays.stream(array).iterator();
-        return count (it, pred)
-    }
-    public static <T> int count(T[] array, Predicate<T> pred)
-    {
-        final Iterator<T> it = Arrays.stream(array).iterator();
-        return count (it, pred)
-    }
-    public static <T> int count(Iterable<T> iterable, T value)
-    {
-        final Iterator<T> it = iterable.iterator();
-        return count(it, value);
-    }
-    public static <T> int count(Iterator<T> iterator, Predicate<T> pred)
+public class Algorithm {
+    private Algorithm ()
     {
 
     }
+    //Method Count
+    public static <T> int count (T[] arr, T val)
+    {
+        return count (Arrays.asList(arr).iterator(), val);
+    }
+    public static<T> int count (T[] arr, Predicate <T> pred)
+    {
+        return count (Arrays.asList(arr).iterator(), pred);
+    }
+    public static <T> int count (Iterable<T> iterable, T val)
+    {
+        return count(iterable.iterator(),val);
+    }
+    public static <T> int count(Iterator <T> iterator, T val){
+        int loop = 0;
+        while (iterator.hasNext())
+        {
+            if (iterator.next().equals(val))
+            {
+                loop += 1;
+            }
+        }
+        return loop;
+    }
+    public static <T> int count (Iterator <T> iterator, Predicate <T> pred)
+    {
+        int loop = 0;
+        while (iterator.hasNext())
+        {
+            if (pred.predicate(iterator.next()))
+            {
+                loop += 1;
+            }
+        }
+        return loop;
+    }
+    public static <T> int count (Iterable <T> iterable, Predicate <T> pred)
+    {
+        int loop = 0;
+        for (T t: iterable)
+        {
+            if (pred.predicate(t))
+            {
+                loop++;
+            }
+        }
+        return loop;
+    }
 
-
-    public static <T> boolean exists(Iterable<T> iterable, T value)
+    //Method Exists
+    public static <T> boolean exists (Iterable<T> iterable, T val)
     {
-        final Iterator<T> it = iterable.iterator();
-        return exists(it, value);
+        final Iterator <T> loop = iterable.iterator();
+        return exists(loop, val);
     }
-    public static <T> boolean exists(Iterable<T> iterable, Predicate<T> pred)
+    public static <T> boolean exist (T[] arr, Predicate<T> pred)
     {
-        final Iterator<T> it = iterable.iterator();
-        return exists(it, pred);
+        final Iterator<T> loop = Arrays.stream(arr).iterator();
+        return exists (loop,pred);
     }
-    public static <T> boolean exists(T[] array, Predicate<T> pred)
+    public static <T> boolean exists (Iterable<T> iterable, Predicate<T> pred)
     {
-        final Iterator<T> it = Arrays.stream(array).iterator();
-        return exists(it, pred);
+        final Iterator <T> loop = iterable.iterator();
+        return exists (loop, pred);
     }
-    public static boolean exists(T[]array, T value)
+    public static <T> boolean exist (T[] arr, T val)
     {
-        final Iterator<T> it = Arrays.stream(array).iterator();
-        return exists(it, value);
+        final Iterator <T> loop = Arrays.stream(arr).iterator();
+        return exists (loop,val);
     }
-    public static <T> boolean exists(Iterator<T> iterator, T value)
+    public static <T> boolean exists(T[] arr, T val)
     {
-        final Predicate(T) pred = value::equals;
-        return exists(iterator, pred);
+        final Iterator<T> loop = Arrays.stream(arr).iterator();
+        return exists (loop,val);
+    }
+    public static <T> boolean exists(Iterator<T> iterator, T val)
+    {
+        final Predicate<T> pred = val::equals;
+        return exists (iterator, pred);
     }
     public static <T> boolean exists(Iterator<T> iterator, Predicate<T> pred)
     {
-        while(iterator.hasNext()){
+        while(iterator.hasNext())
+        {
             T current = iterator.next();
-            if(pred.predicate(current))
+            if (pred.predicate(current) )
+            {
                 return true;
+            }
         }
         return false;
     }
-    public static <T> T find([T] array, Predicate<T> pred)
-    {
-        final Iterator<T> it = Arrays.stream(array).iterator();
-        return find(it, pred);
-    }
-    public static <T> T find(T[] array, T value)
-    {
-        final Iterator<T> it = Arrays.stream(array).iterator();
-        return find(it, value);
-    }
-    public static <T> T find(Iterable<T> iterable, T value)
-    {
-        final Iterator<T> it = iterable.iterator();
-        return find(it, value);
-    }
-    public static <T> T find(Iterator<T> iterator, T value)
-    {
-        final Predicate<T> pred = value::equals;
-        return fing(iterator, pred);
-    }
-    public static <T> T find(Iterable<T> iterable, Predicate<T> pred)
-    {
-        final Iterator<T> it = iterable.iterator();
-        return find(it, pred);
-    }
-    public static <T> T find(Iterator<T> iterator, Predicate<T> pred)
-    {
 
+    //Method Find
+    public static <T> T find(T[] arr, T val)
+    {
+        final Predicate <T> pred = val::equals;
+        return find (arr, pred);
+    }
+    public static <T> T find (Iterable <T> iterator, T val)
+    {
+        final Predicate <T> pred = val :: equals;
+        return find (iterator,pred);
+    }
+    public static <T> T find (Iterator<T> iterator, T val)
+    {
+        final Predicate <T> pred = val::equals;
+        return find (iterator,pred);
+    }
+    public static <T> T find (Iterator<T> iterator, Predicate<T> pred)
+    {
+        while (iterator.hasNext()){
+            T current = iterator.next();
+            if (pred.predicate(current)){
+                return current;
+            }
+        }
+        return null;
+    }
+    public static <T> T find(T[] arr, Predicate <T> pred)
+    {
+        for(T t:arr)
+        {
+            if (pred.predicate(t))
+            {
+                return t;
+            }
+        }
+        return null;
+    }
+    public static <T> T find(Iterable <T> iterable, Predicate <T> pred)
+    {
+        for (T t:iterable)
+        {
+            if (pred.predicate(t))
+            {
+                return t;
+            }
+        }
+        return null;
     }
 }
