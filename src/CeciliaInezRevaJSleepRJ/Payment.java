@@ -11,8 +11,7 @@ public class Payment extends Invoice
     public Date from;
     private int roomId;
     
-    public static boolean makeBooking(Date from, Date to, Room room)
-    {
+    public static boolean makeBooking(Date from, Date to, Room room){
         SimpleDateFormat SDFormat = new SimpleDateFormat("dd MMMM yyyy");
         String formattedFrom = SDFormat.format(from.getTime());
         String formattedTo = SDFormat.format(to.getTime());
@@ -22,27 +21,33 @@ public class Payment extends Invoice
         long toInt = to.getTime();
         long timeDiff = Math.abs(fromInt - toInt);
         long daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
-        
-        if(availability(from, to, room)){
-            for(int i = 0; i < daysDiff; i++){
-                c.add(Calendar.DATE, i+1);
-                from = c.getTime();
+
+        if(availability(from, to, room)) {
+            while(from.before(to)) {
                 room.booked.add(from);
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(from);
+                cal.add(Calendar.DATE,1);
+                from = cal.getTime();
             }
             return true;
-        }else{
+        } else {
             return false;
         }
     }
     
     public static boolean availability(Date from, Date to, Room room)
     {
-        if(from.after(to)){
+        if(from.after(to)||from.equals(to)) {
             return false;
         }
         for(Date i : room.booked){
-            if(from.compareTo(i) == 0){
+            if(from.equals(i)){
                 return false;
+            }else if(from.before(i)){
+                if(from.before(i)&&to.after(i)){
+                    return false;
+                }
             }
         }
         return true;

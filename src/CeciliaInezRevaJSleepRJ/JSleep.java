@@ -1,23 +1,37 @@
 package CeciliaInezRevaJSleepRJ;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Praktikum OOP - CS.
  *
  * @author (Cecilia Inez Reva Manurung)
  *          NPM: 2106636994
- * @version (21 Sept 2022)
+ * @version (11 Oktober 2022)
  */
 
 public class JSleep
 {
      public static Room createRoom(){
-        Price price = new Price(200000, 10);
-        Room room = new Room(1, "hotel", 50, price, Facility.AC, City.DEPOK, "JL. Margonda Raya");
+        Price price = new Price(100000, 0.5);
+        Room room = new Room(1, "Hotel", 30, price, Facility.AC, City.DEPOK, "Jalan Margonda Raya");
         return room;
     }
     
     public static void main(String[] args){
+        ArrayList<Room> RoomSerialized = new ArrayList<Room>();
+        for(int i = 0; i<5; i++){
+            RoomSerialized.add(i, JSleep.createRoom());
+            System.out.println(RoomSerialized.get(i).toString());
+        }
+        
+        //error handling
+        //System.out.println("Membuat booking dari tanggal 20 hingga 15");
+        //Date start = Date.valueOf("2022-8-20");
+        //Date end = Date.valueOf("2022-8-15");
+        //System.out.println(Payment.makeBooking(start, end,RoomA));
+
+        /*
         Room RoomA = JSleep.createRoom();
         Room RoomB = JSleep.createRoom();
         System.out.println("Membuat booking dari tanggal 15 hingga 18");
@@ -34,14 +48,9 @@ public class JSleep
         System.out.println(Payment.makeBooking(start3, end3,RoomB));
 
         System.out.print("\n\nHello from Intellij!");
-        
-        //error handling
-        //System.out.println("Membuat booking dari tanggal 20 hingga 15");
-        //Date start = Date.valueOf("2022-8-20");
-        //Date end = Date.valueOf("2022-8-15");
-        //System.out.println(Payment.makeBooking(start, end,RoomA));
 
-        /*Room theroom = createRoom();
+
+        Room theroom = createRoom();
         
         System.out.println("Make a room");
         System.out.println(theroom.name);
