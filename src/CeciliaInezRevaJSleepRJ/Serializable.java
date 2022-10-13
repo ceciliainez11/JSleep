@@ -25,11 +25,6 @@ public class Serializable {
         return mapCounter.replace(setter, number);
     }
 
-    public int compareTo(Serializable temp)
-    {
-        return((Integer) this.id).compareTo(temp.id);
-    }
-
     public boolean equals(Object tempObject) {
         if (tempObject instanceof Serializable && ((Serializable)tempObject).id == this.id)
         {   return true;
@@ -43,6 +38,11 @@ public class Serializable {
         } else {
             return false;
         }
+    }
+
+    public int compareTo(Serializable temp)
+    {
+        return((Integer) this.id).compareTo(temp.id);
     }
 
     protected Serializable(int id) { // initialise instance variable
