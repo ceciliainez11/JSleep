@@ -30,203 +30,52 @@ public class JSleep
         public List<String> listOfStates;
     }
     
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        Renter testRegex = new Renter("Netlab_", "081234567890", "Jl Margonda Raya");
+        Renter testRegexFail = new Renter("netlab", "081", "Jalan");
+        System.out.println(testRegex.validate());
+        System.out.println(testRegexFail.validate());
 
-        String filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\oop\\JSleep\\JSleep\\city.json";
-        Gson gson = new Gson();
-        try{
-            BufferedReader br = new BufferedReader(new FileReader(filepath));
-            Country input = gson.fromJson(br, Country.class);
-            System.out.println("name : " + input.name);
-            System.out.println("population: " + input.population);
-            System.out.println("states : ");
-            input.listOfStates.forEach(state -> System.out.println(state));
+        try {
+            String filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\oop\\JSleep\\JSleep\\json\\randomRoomList.json";
+            JsonTable<Room> tableRoom = new JsonTable<>(Room.class, filepath);
+            List<Room> filterTableRoom = filterByCity(tableRoom, "medan", 0, 5);
+            filterTableRoom.forEach(room -> System.out.println(room.toString()));
+        } catch (Throwable t) {
+            t.printStackTrace();
         }
-        catch (IOException e){
-            e.printStackTrace();
+    }
+
+
+        public static List<Room> filterByCity(List<Room> List, String city, int start, int end){
+            List<Room> cityList = Algorithm.<Room>paginate(List, start, end, i -> i.city == City.valueOf(city.toUpperCase()));
+            return cityList;
         }
 
-        ArrayList<Room> RoomSerialized = new ArrayList<Room>();
-        for(int i = 0; i<5; i++){
-            RoomSerialized.add(i, JSleep.createRoom());
-            System.out.println(RoomSerialized.get(i).toString());
+        public static List<Room> filterByAccountId(List<Room> accountList, int accId, int start, int end){
+            List<Room> accList = Algorithm.<Room>paginate(accountList, start, end, a -> a.accountId == accId);
+            return accList;
         }
-        
-        //error handling
-        //System.out.println("Membuat booking dari tanggal 20 hingga 15");
-        //Date start = Date.valueOf("2022-8-20");
-        //Date end = Date.valueOf("2022-8-15");
-        //System.out.println(Payment.makeBooking(start, end,RoomA));
-
-        /*
-        Room RoomA = JSleep.createRoom();
-        Room RoomB = JSleep.createRoom();
-        System.out.println("Membuat booking dari tanggal 15 hingga 18");
-        Date start = Date.valueOf("2022-8-15");
-        Date end = Date.valueOf("2022-8-20");
-        System.out.println(Payment.makeBooking(start, end,RoomA));
-        System.out.println("Membuat booking dari tanggal 15 hingga 18");
-        Date start2 = Date.valueOf("2022-8-18");
-        Date end2 = Date.valueOf("2022-8-20");
-        System.out.println(Payment.makeBooking(start2, end2,RoomA));
-        System.out.println("Membuat booking dari tanggal 15 hingga 18 untuk kamar berbeda");
-        Date start3 = Date.valueOf("2022-8-18");
-        Date end3 = Date.valueOf("2022-8-20");
-        System.out.println(Payment.makeBooking(start3, end3,RoomB));
-
-        System.out.print("\n\nHello from Intellij!");
-
-
-        Room theroom = createRoom();
-        
-        System.out.println("Make a room");
-        System.out.println(theroom.name);
-        System.out.println(theroom.size);
-        System.out.println(theroom.price.price);
-        System.out.println(theroom.facility);*/
-        
-        /*Payment testRoom = new Payment(1, 1, 1, "", 1, "", "");
-        Invoice testInvoice = new Invoice(2, 2, 2, "");
-        System.out.println(testRoom.print());
-        System.out.println(testInvoice.print());*/
-        
-        /*Complaint testComplain = new Complaint(1, "23 Agustus 2022", "Bad Quality");
-        Price testPrice = new Price(100000, 20000);
-        Room testRoom = new Room(1, "Presidential Suite", 5, testPrice, Facility.FitnessCenter, City.DEPOK, "JL. Margonda Raya");
-        Account testAccount = new Account(1, "Bob", "bob@gmail.com", "bob");
-        Rating testRating = new Rating();
-        System.out.println(testComplain.toString());
-        System.out.println(testRoom.toString());
-        System.out.println(testAccount.toString());
-        System.out.println(testPrice.toString());
-        System.out.println(testRating.toString());*/
-        
-        /*Payment testPayment = new Payment(2, 2, 2,2);
-        System.out.println(testPayment.getTime());
-        System.out.println(testPayment.getDuration());
-        Price[] unfilteredArray = new Price[5];
-        for(int i=0;i < unfilteredArray.length;i++){
-            int j = 5000;
-            unfilteredArray[i] = new Price((i+1)*j);
-        }
-        System.out.println("Price List");
-        for(int i=0;i < unfilteredArray.length;i++){
-            System.out.println(unfilteredArray[i].price);
-        }
-        System.out.println("Below 12000.0");
-        System.out.println(Validate.filter(unfilteredArray, 12000,true));
-        System.out.println("Above 10000.0");
-        System.out.println(Validate.filter(unfilteredArray, 10000,false));*/        
-    }
-    /*public static void main (String[] args){
-    Payment testPayment = new Payment(2, 2, 2,2);
-    System.out.println(testPayment.getTime());
-    System.out.println(testPayment.getDuration());
-    Price[] unfilteredArray = new Price[5];
-    for(int i=0;i < unfilteredArray.length;i++){
-        int j = 5000;
-         unfilteredArray[i] = new Price((i+1)*j);
-    }
-    System.out.println("Price List");
-    for(int i=0;i < unfilteredArray.length;i++){
-        System.out.println(unfilteredArray[i].price);
-    }
-    System.out.println("Below 12000.0");
-    System.out.println(Validate.filter(unfilteredArray, 12000,true));
-    System.out.println("Above 10000.0");
-    System.out.println(Validate.filter(unfilteredArray, 10000,false));
-    }*/
-    /*
-    public static void main (String[] args){
-    Payment testRoom = new Payment(1, 1, 1, "", 1, "", "");
-    Invoice testInvoice = new Invoice(2,2,2, "");
-    System.out.println(testRoom.print());
-    System.out.println(testInvoice.print());
-    }
-    */
-    
-    /*
-    public static int getHotelId (){
-        return 0;
-    }
-    public static String getHotelName(){
-        return "hotel";
-    }
-    public static boolean isDiscount(){
-        return true;
-    }
-    public static float getDiscountPercentage (int beforeDiscount, int afterDiscount){
-        if (beforeDiscount < afterDiscount){
-            return 0;
-        }
-        if (beforeDiscount == 0){
-            return 0;
-        }
-        
-            float percentage = (((float)beforeDiscount - (float)afterDiscount)*100)/(float)beforeDiscount;
-            return percentage;
-        
-    }
-    
-    public static int getDiscountedPrice (int price, float discountPercentage){
-        if (discountPercentage >= 100) {
-            return 0;
-        }
-        else {
-            float DiscountedPrice = (price - ((price * discountPercentage)/100));
-            return (int) DiscountedPrice;
-            
-        }
-        
-    }
-    public static int getOriginalPrice(int discountedPrice, float discountPercentage){
-      
-        float originalPrice = (float)discountedPrice/(1-(discountPercentage/100));
-        return (int) originalPrice;
-    }
-    public static float getAdminFeePercentage(){
-        return 0.05f;
-    }
-    public static int getAdminFee(int price){
-        float adminFee = price * getAdminFeePercentage();
-        return (int) adminFee;
-    }
-    public static int getTotalPrice(int price, int numberOfNight){
-        int totalPrice = (price* numberOfNight) + getAdminFee(price * numberOfNight);
-        return totalPrice;
-    }
-    public static Room createRoom(){
-        Price price = new Price (100000, 5);
-        Room room = new Room("hotel",30,price, Facility.AC);
-        return room;
-        
-    }
-    public static void main (String[] args){
-       System.out.println(getHotelId());
-       System.out.println(getHotelName());
-       System.out.println(isDiscount());
-
-       System.out.println(getDiscountPercentage(1000,900));
-       System.out.println(getDiscountPercentage(1000,0));
-       System.out.println(getDiscountPercentage(0,0));
-       System.out.println(getDiscountPercentage(0,1));
-
-       System.out.println(getDiscountedPrice(1000, 10.0f));
-       System.out.println(getDiscountedPrice(1000,100.0f));
-       System.out.println(getDiscountedPrice(1000,120.0f));
-       System.out.println(getDiscountedPrice(0,0f));
-
-       System.out.println(getOriginalPrice(900, 10.0f));
-       System.out.println(getOriginalPrice(1000, 0.0f));
-       System.out.println(getOriginalPrice(0, 100.0f));
-       System.out.println(getOriginalPrice(0, 120.0f));
-       Room room = JSleep.createRoom();
-       System.out.println(room.name);
-       System.out.println(room.size);
-       System.out.println(room.price.price);
-       System.out.println(room.facility);
-      
-    }*/
-
 }
+//        String filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\oop\\JSleep\\JSleep\\city.json";
+//        Gson gson = new Gson();
+//        try{
+//            BufferedReader br = new BufferedReader(new FileReader(filepath));
+//            Country input = gson.fromJson(br, Country.class);
+//            System.out.println("name : " + input.name);
+//            System.out.println("population: " + input.population);
+//            System.out.println("states : ");
+//            input.listOfStates.forEach(state -> System.out.println(state));
+//        }
+//        catch (IOException e){
+//            e.printStackTrace();
+//        }
+
+//        ArrayList<Room> RoomSerialized = new ArrayList<Room>();
+//        for(int i = 0; i<5; i++){
+//            RoomSerialized.add(i, JSleep.createRoom());
+//            System.out.println(RoomSerialized.get(i).toString());
+//        }
+
+
 

@@ -2,7 +2,7 @@ package CeciliaInezRevaJSleepRJ;
 import java.util.Date;
 import java.util.ArrayList;
 
-public class Room extends Serializable implements FileParser
+public class Room extends Serializable
 {
     public String address;
     public City city;
@@ -12,6 +12,7 @@ public class Room extends Serializable implements FileParser
     public BedType bedType;
     public Facility facility;
     public String name;
+    public int accountId;
     
     public Object write() {
         return null;
@@ -25,8 +26,9 @@ public class Room extends Serializable implements FileParser
         return "\nName: " + this.name + "\nAddress: " + this.address + "\nSize: " + this.size + "\nFacility: " + this.facility + "\nBed Type: " + this.bedType + "\nCity: " + this.city  + this.price;    
     }
     
-    public Room (int id, String name, int size, Price price, Facility facility, City city, String address){
+    public Room (int accountid, String name, int size, Price price, Facility facility, City city, String address){
        super();
+       this.accountId = accountid;
        this.name = name;
        this.size = size;
        this.price = price;

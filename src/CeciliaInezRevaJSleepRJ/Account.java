@@ -11,7 +11,7 @@ package CeciliaInezRevaJSleepRJ;
 >>>>>>> c35a68e67ac992291ad6100c80e686811cbbc6b2
  */
 
-public class Account extends Serializable implements FileParser
+public class Account extends Serializable
 {
     // instance variables
     public String name;

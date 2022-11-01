@@ -8,7 +8,7 @@ package CeciliaInezRevaJSleepRJ;
  *          NPM: 2106636994
  * @version (27 Sept 2022)
  */
-public class Voucher extends Serializable implements FileParser
+public class Voucher extends Serializable
 {
     // instance variables
     public String name;

@@ -1,16 +1,41 @@
 package CeciliaInezRevaJSleepRJ;
 
-public class Renter extends Serializable
-{
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Renter extends Serializable {
+    public static final String REGEX_NAME = "^[A-Z]{1}\\w{4,20}$";
+    public static final String REGEX_PHONE = "^\\d{9,12}$";
     // instance variables - replace the example below with your own
-    public int phoneNumber;
+    public String phoneNumber;
     public String address;
     public String username;
 
     /**
      * Constructor for objects of class Renter
      */
-    public Renter(int id, String username, int phoneNumber)
+    public Renter(String username, String phoneNumber, String address)
+    {
+        this.username = username;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+    public boolean validate()
+    {
+        Pattern patternName = Pattern.compile(this.REGEX_NAME);
+        Matcher nameMatcher = patternName.matcher(this.username);
+        boolean matchFoundName = nameMatcher.find();
+        Pattern patternPhone = Pattern.compile(this.REGEX_PHONE);
+        Matcher phoneMatcher = patternPhone.matcher(this.phoneNumber);
+        boolean matchFoundNum = phoneMatcher.find();
+
+        if (matchFoundNum && matchFoundName)
+            return true;
+        else
+            return false;
+    }
+
+    /*public Renter(String username, int phoneNumber)
     {
         super();
         this.username = username;
@@ -18,7 +43,7 @@ public class Renter extends Serializable
         this.address = "";
     }
     
-    public Renter(int id, String username)
+    public Renter(String username)
     {
         // initialise instance variables
         super();
@@ -27,7 +52,7 @@ public class Renter extends Serializable
         this.address = "";
     }
     
-    public Renter(int id, String username, String address)
+    public Renter(String username, String address)
     {
         super();
         this.username = username;
@@ -35,11 +60,11 @@ public class Renter extends Serializable
         this.address = address;
     }
     
-    public Renter(int id, String username, int phoneNumber, String address)
+    public Renter(String username, String phoneNumber, String address)
     {
         super();
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.address = address;
-    }
+    }*/
 }
