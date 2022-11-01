@@ -47,13 +47,18 @@ public class JSleep
     }
 
 
-        public static List<Room> filterByCity(List<Room> List, String city, int start, int end){
-            List<Room> cityList = Algorithm.<Room>paginate(List, start, end, i -> i.city == City.valueOf(city.toUpperCase()));
+    public static List<Room> filterByCity(List<Room> list, String search, int page, int pageSize){
+            List<Room> cityList = Algorithm.<Room>paginate(list, page, pageSize, i -> i.city == City.valueOf(search.toUpperCase()));
             return cityList;
         }
 
-        public static List<Room> filterByAccountId(List<Room> accountList, int accId, int start, int end){
-            List<Room> accList = Algorithm.<Room>paginate(accountList, start, end, a -> a.accountId == accId);
+    public static List<Room> filterByPrice(List<Room> list, double minPrice, double maxPrice){
+            List<Room> accList = Algorithm.<Room>collect(list, p -> (p.price.price <= maxPrice) && (p.price.price >= minPrice));
+            return accList;
+        }
+
+    public static List<Room> filterByAccountId(List<Room> list, int accountId, int page, int pageSize){
+        List<Room> accList = Algorithm.<Room>paginate(list, page, pageSize, a -> a.accountId == accountId);
             return accList;
         }
 }
