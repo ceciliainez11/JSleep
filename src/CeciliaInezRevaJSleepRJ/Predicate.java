@@ -1,5 +1,5 @@
 package CeciliaInezRevaJSleepRJ;
 
-public interface Predicate<T>{
-    public boolean predicate(T T);
+public interface Predicate<T> {
+    public abstract boolean predicate(T arg);
 }

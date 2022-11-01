@@ -18,7 +18,7 @@ public class Complaint extends Serializable
      */
     public Complaint(int id, String date, String desc)
     {
-        super(id);
+        super();
         this.date = date;
         this.desc = desc;
     }

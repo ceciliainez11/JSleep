@@ -10,7 +10,7 @@ public class Payment extends Invoice
     public Date to;
     public Date from;
     private int roomId;
-    
+
     public static boolean makeBooking(Date from, Date to, Room room){
         SimpleDateFormat SDFormat = new SimpleDateFormat("dd MMMM yyyy");
         String formattedFrom = SDFormat.format(from.getTime());
@@ -35,7 +35,7 @@ public class Payment extends Invoice
             return false;
         }
     }
-    
+
     public static boolean availability(Date from, Date to, Room room)
     {
         if(from.after(to)||from.equals(to)) {
@@ -52,24 +52,24 @@ public class Payment extends Invoice
         }
         return true;
     }
-    
+
     public String getTime()
     {
         SimpleDateFormat SDFormat = new SimpleDateFormat("'Formatted Date = 'dd MMMM yyyy");
         String formattedFrom = SDFormat.format(from.getTime());
         return formattedFrom;
     }
-    
+
     public String print()
     {
         return ("Room ID: " + this.roomId + "\n"+ "Payment from: " + this.from + "\n" + "Payment to: " + this.to + "\n");
     }
-    
+
     public int getRoomId()
     {
         return roomId;
     }
-    
+
     public Payment(int id, Account buyer, Renter renter, int roomId, Date from, Date to)
     {
         super(id, buyer, renter);

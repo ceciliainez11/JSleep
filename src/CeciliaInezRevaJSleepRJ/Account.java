@@ -23,17 +23,17 @@ public class Account extends Serializable implements FileParser
      */
     public Account(int id, String name, String email, String password)
     {
-        super(id);
+        super();
         this.name = name;
         this.email = email;
         this.password = password;
     }
-    
+
     public String toString()
     {
         return "\n\nID: " + id + "\nName: " + name + "\nEmail: " + email + "\nPassword: " + password;
     }
-    
+
     public boolean read(String Content){
         return false;
     }

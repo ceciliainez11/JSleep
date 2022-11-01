@@ -24,16 +24,16 @@ public class Invoice extends Serializable
     {
         NONE, BAD, NEUTRAL, GOOD
     }
-    
+
     public enum PaymentStatus
     {
         FAILED, WAITING, SUCCESS
     }
-    
+
     protected Invoice(int id, int buyerId, int renterId)
     {
         // initialise instance variables
-        super(id);
+        super();
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.time = new Date();
@@ -43,14 +43,14 @@ public class Invoice extends Serializable
 
     public Invoice(int id, Account buyer, Renter renter)
     {
-        super(id); 
+        super();
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.time = new Date();
         this.rating = RoomRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
-    
+
     public String print()
     {
         return "\nTime= " + time + "\nBuyerId=" + buyerId + "\nRenterId=" + renterId;

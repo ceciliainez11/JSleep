@@ -12,7 +12,7 @@ public class Renter extends Serializable
      */
     public Renter(int id, String username, int phoneNumber)
     {
-        super(id);
+        super();
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.address = "";
@@ -21,7 +21,7 @@ public class Renter extends Serializable
     public Renter(int id, String username)
     {
         // initialise instance variables
-        super(id);
+        super();
         this.username = username;
         this.phoneNumber = 0;
         this.address = "";
@@ -29,7 +29,7 @@ public class Renter extends Serializable
     
     public Renter(int id, String username, String address)
     {
-        super(id);
+        super();
         this.username = username;
         this.phoneNumber = 0;
         this.address = address;
@@ -37,7 +37,7 @@ public class Renter extends Serializable
     
     public Renter(int id, String username, int phoneNumber, String address)
     {
-        super(id);
+        super();
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.address = address;
