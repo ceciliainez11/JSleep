@@ -34,37 +34,5 @@ public class Renter extends Serializable {
         else
             return false;
     }
-
-    /*public Renter(String username, int phoneNumber)
-    {
-        super();
-        this.username = username;
-        this.phoneNumber = phoneNumber;
-        this.address = "";
-    }
-    
-    public Renter(String username)
-    {
-        // initialise instance variables
-        super();
-        this.username = username;
-        this.phoneNumber = 0;
-        this.address = "";
-    }
-    
-    public Renter(String username, String address)
-    {
-        super();
-        this.username = username;
-        this.phoneNumber = 0;
-        this.address = address;
-    }
-    
-    public Renter(String username, String phoneNumber, String address)
-    {
-        super();
-        this.username = username;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-    }*/
 }
+

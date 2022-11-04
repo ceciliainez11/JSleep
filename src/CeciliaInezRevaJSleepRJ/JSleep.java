@@ -1,4 +1,5 @@
 package CeciliaInezRevaJSleepRJ;
+import java.io.FileWriter;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -6,15 +7,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import java.io.FileWriter;
 import com.google.gson.*;
-
-/**
- * Praktikum OOP - CS.
- *
- * @author (Cecilia Inez Reva Manurung)
- *          NPM: 2106636994
- * @version (11 Oktober 2022)
- */
 
 public class JSleep
 {
@@ -31,21 +25,31 @@ public class JSleep
     }
     
     public static void main(String[] args) {
-        Renter testRegex = new Renter("Netlab_", "081234567890", "Jl Margonda Raya");
-        Renter testRegexFail = new Renter("netlab", "081", "Jalan");
-        System.out.println(testRegex.validate());
-        System.out.println(testRegexFail.validate());
 
-        try {
-            String filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\oop\\JSleep\\JSleep\\json\\randomRoomList.json";
-            JsonTable<Room> tableRoom = new JsonTable<>(Room.class, filepath);
-            List<Room> filterTableRoom = filterByCity(tableRoom, "medan", 0, 5);
-            filterTableRoom.forEach(room -> System.out.println(room.toString()));
-        } catch (Throwable t) {
-            t.printStackTrace();
+//        Account testRegex = new Account("Netlab_", "supriyono@ui.ac.id", "sayaReva11");
+//        Account testRegexFail = new Account("netlab", "kemas.rafli@gmail2.com.", "sayaReva11");
+//        System.out.println(testRegex.validate());
+//        System.out.println(testRegexFail.validate());
+
+        for(int i = 0; i < 10; i++)
+        {
+            ThreadingObject thread = new ThreadingObject("Thread" + i);
+            thread.start();
+        }
+
+        String filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\oop\\JSleep\\JSleep\\json\\account.json";
+        try{
+            JsonTable<Account> tableAccount = new JsonTable<>(Account.class, filepath);
+            tableAccount.add(new Account("Supriyono", "supriyono@gmail.com", "Supriyono1"));
+
+            JsonTable.writeJson(tableAccount, filepath);
+            tableAccount.forEach(System.out::println);
+            System.out.println(tableAccount);
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
         }
     }
-
 
     public static List<Room> filterByCity(List <Room> list , String search, int page, int pageSize) {
         return Algorithm.paginate(list, page, pageSize, room -> room.city.toString().toLowerCase().contains(search.toLowerCase()));
