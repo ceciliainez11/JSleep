@@ -40,7 +40,7 @@ public class JSleep
         String filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\oop\\JSleep\\JSleep\\json\\account.json";
         try{
             JsonTable<Account> tableAccount = new JsonTable<>(Account.class, filepath);
-            tableAccount.add(new Account("Supriyono", "supriyono@gmail.com", "Supriyono1"));
+            tableAccount.add(new Account("name", "email", "password"));
 
             JsonTable.writeJson(tableAccount, filepath);
             tableAccount.forEach(System.out::println);
