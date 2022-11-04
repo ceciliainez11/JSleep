@@ -47,40 +47,21 @@ public class JSleep
     }
 
 
-    public static List<Room> filterByCity(List<Room> list, String search, int page, int pageSize){
-            List<Room> cityList = Algorithm.<Room>paginate(list, page, pageSize, i -> i.city == City.valueOf(search.toUpperCase()));
-            return cityList;
-        }
+    public static List<Room> filterByCity(List <Room> list , String search, int page, int pageSize) {
+        return Algorithm.paginate(list, page, pageSize, room -> room.city.toString().toLowerCase().contains(search.toLowerCase()));
+    }
 
-    public static List<Room> filterByPrice(List<Room> list, double minPrice, double maxPrice){
-            List<Room> accList = Algorithm.<Room>collect(list, p -> (p.price.price <= maxPrice) && (p.price.price >= minPrice));
-            return accList;
-        }
+    public static List<Room> filterByPrice(List<Room> priceList, double minPrice, double maxPrice){
+        if(maxPrice == 0){
+            return Algorithm.<Room>collect(priceList, temp -> (temp.price.price >= minPrice));
+        } return Algorithm.<Room>collect(priceList, temp -> (temp.price.price <= maxPrice) && (temp.price.price >= minPrice));
+    }
 
     public static List<Room> filterByAccountId(List<Room> list, int accountId, int page, int pageSize){
         List<Room> accList = Algorithm.<Room>paginate(list, page, pageSize, a -> a.accountId == accountId);
             return accList;
-        }
+    }
 }
-//        String filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\oop\\JSleep\\JSleep\\city.json";
-//        Gson gson = new Gson();
-//        try{
-//            BufferedReader br = new BufferedReader(new FileReader(filepath));
-//            Country input = gson.fromJson(br, Country.class);
-//            System.out.println("name : " + input.name);
-//            System.out.println("population: " + input.population);
-//            System.out.println("states : ");
-//            input.listOfStates.forEach(state -> System.out.println(state));
-//        }
-//        catch (IOException e){
-//            e.printStackTrace();
-//        }
-
-//        ArrayList<Room> RoomSerialized = new ArrayList<Room>();
-//        for(int i = 0; i<5; i++){
-//            RoomSerialized.add(i, JSleep.createRoom());
-//            System.out.println(RoomSerialized.get(i).toString());
-//        }
 
 
 
