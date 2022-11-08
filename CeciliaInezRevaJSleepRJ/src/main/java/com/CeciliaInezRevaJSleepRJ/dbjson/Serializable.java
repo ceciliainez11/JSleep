@@ -1,12 +1,12 @@
-package com.CeciliaInezRevaJSleepRJ;
+package com.CeciliaInezRevaJSleepRJ.dbjson;
 
 import java.util.HashMap;
 
-public class Serializable {
+public class Serializable implements Comparable<Serializable>{
     public final int id;
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<Class<?>, Integer>();
 
-    protected Serializable() {
+    protected Serializable () {
         Integer counter = mapCounter.get(getClass());
         if (counter == null){
             counter =  0;

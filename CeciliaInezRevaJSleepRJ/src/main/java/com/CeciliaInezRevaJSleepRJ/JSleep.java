@@ -31,6 +31,10 @@ public class JSleep
     
     public static void main(String[] args) {
 
+        JsonDBEngine.Run(JSleep.class);
+        SpringApplication.run(JSleep.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> JsonDBEngine.join()));
+
         SpringApplication.run(JSleep.class, args);
 
 //        Account testRegex = new Account("Netlab_", "supriyono@ui.ac.id", "sayaReva11");

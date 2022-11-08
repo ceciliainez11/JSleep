@@ -8,6 +8,7 @@ package com.CeciliaInezRevaJSleepRJ;
  */
 
 import java.util.Date;
+import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
 
 public class Invoice extends Serializable
 {

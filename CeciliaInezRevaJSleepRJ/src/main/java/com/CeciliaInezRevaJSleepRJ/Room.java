@@ -1,5 +1,7 @@
 package com.CeciliaInezRevaJSleepRJ;
 
+import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
+
 import java.util.Date;
 import java.util.ArrayList;
 

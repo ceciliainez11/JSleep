@@ -1,5 +1,6 @@
 package com.CeciliaInezRevaJSleepRJ;
 
+import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
 
 /**
  * Praktikum OOP - Tutam.

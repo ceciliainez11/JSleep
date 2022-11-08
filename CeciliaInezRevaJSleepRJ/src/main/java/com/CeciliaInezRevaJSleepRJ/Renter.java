@@ -1,5 +1,7 @@
 package com.CeciliaInezRevaJSleepRJ;
 
+import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

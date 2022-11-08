@@ -3,15 +3,18 @@ package com.CeciliaInezRevaJSleepRJ;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
+
 public class Account extends Serializable
 {
     // instance variables
-    public static final String REGEX_EMAIL = "^[A-Za-z0-9]+(?:\\\\.[\\w!#$%&’*+/=?`{|}~^]+)*@(?:[a-zA-Z]+\\.)+[a-zA-Z]{2,6}$";
-    public static final String REGEX_PASSWORD = "((?=\\S+$)(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,})";
+    public static final String REGEX_EMAIL = "^[A-Za-z0-9]+@[A-Za-z]+\\.[A-Za-z.]+[^.]$";
+    public static final String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
     public String name;
     public String email;
+    public double balance;
     public String password;
-
+    public double renter;
     /**
      * Constructor for objects of class Account
      */
