@@ -14,7 +14,7 @@ public class Account extends Serializable
     public String email;
     public double balance;
     public String password;
-    public double renter;
+    public Renter renter;
     /**
      * Constructor for objects of class Account
      */

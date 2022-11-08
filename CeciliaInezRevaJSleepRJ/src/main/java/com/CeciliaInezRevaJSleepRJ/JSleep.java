@@ -10,6 +10,9 @@ import java.util.List;
 import java.io.FileWriter;
 import com.google.gson.*;
 
+import com.CeciliaInezRevaJSleepRJ.dbjson.JsonDBEngine;
+import com.CeciliaInezRevaJSleepRJ.dbjson.JsonTable;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

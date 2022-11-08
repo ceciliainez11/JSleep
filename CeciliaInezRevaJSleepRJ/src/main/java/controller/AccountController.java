@@ -1,6 +1,7 @@
 package com.CeciliaInezRevaJSleepRJ.controller;
 
 import com.CeciliaInezRevaJSleepRJ.Account;
+import com.CeciliaInezRevaJSleepRJ.controller.BasicGetController;
 import com.CeciliaInezRevaJSleepRJ.Renter;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,13 +60,12 @@ public class AccountController implements BasicGetController<Account>
     @PostMapping("/{id}/registerRenter")
     public Renter registerRenter(@PathVariable int id, @RequestParam String name, @RequestParam String address, @RequestParam String phoneNumber)
     {
-        for(Account account : accountTable){
-            if(account.id == id & account.renter == null){
-                Renter renter = new Renter(name, address, phoneNumber);
-                account renter = renter;
-                return renter;
+        for (Account account : accountTable){
+            if((account.id == id) && (account.renter == null)){
+                return(new Renter(name, phoneNumber, address));
             }
-        } return null;
+        }
+        return null;
     }
 
     @PostMapping("/{id}/topUp")
