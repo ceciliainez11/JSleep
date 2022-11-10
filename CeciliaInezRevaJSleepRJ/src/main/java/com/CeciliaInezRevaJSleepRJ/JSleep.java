@@ -38,10 +38,8 @@ public class JSleep
         SpringApplication.run(JSleep.class, args);
         Runtime.getRuntime().addShutdownHook(new Thread(() -> JsonDBEngine.join()));
 
-        SpringApplication.run(JSleep.class, args);
-
-//        Account testRegex = new Account("Netlab_", "supriyono@ui.ac.id", "sayaReva11");
-//        Account testRegexFail = new Account("netlab", "kemas.rafli@gmail2.com.", "sayaReva11");
+//        Account testRegex = new Account("Netlab", "kemasrafly@gmail.com", "JlMargonda18Raya");
+//        Account testRegexFail = new Account("netlab", "kemasrafly@ui.ac.id", "Adadwadada121dad");
 //        System.out.println(testRegex.validate());
 //        System.out.println(testRegexFail.validate());
 

@@ -1,5 +1,7 @@
 package com.CeciliaInezRevaJSleepRJ;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -17,10 +19,6 @@ public class Payment extends Invoice
         String formattedTo = SDFormat.format(to.getTime());
         Calendar c = Calendar.getInstance();
         c.setTime(from);
-        long fromInt = from.getTime();
-        long toInt = to.getTime();
-        long timeDiff = Math.abs(fromInt - toInt);
-        long daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
 
         if(availability(from, to, room)) {
             while(from.before(to)) {
@@ -51,13 +49,6 @@ public class Payment extends Invoice
             }
         }
         return true;
-    }
-
-    public String getTime()
-    {
-        SimpleDateFormat SDFormat = new SimpleDateFormat("'Formatted Date = 'dd MMMM yyyy");
-        String formattedFrom = SDFormat.format(from.getTime());
-        return formattedFrom;
     }
 
     public String print()

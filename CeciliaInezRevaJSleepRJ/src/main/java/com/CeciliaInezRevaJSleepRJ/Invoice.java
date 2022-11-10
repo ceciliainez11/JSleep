@@ -7,7 +7,6 @@ package com.CeciliaInezRevaJSleepRJ;
  * @author (Cecilia Inez Reva M. - 2106636994)
  */
 
-import java.util.Date;
 import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
 
 public class Invoice extends Serializable
@@ -16,7 +15,6 @@ public class Invoice extends Serializable
     public RoomRating rating;
     public PaymentStatus status;
     public int buyerId;
-    public Date time;
     //public Calendar time;
     public int renterId;
     //public int renterId;
@@ -37,7 +35,6 @@ public class Invoice extends Serializable
         super();
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = new Date();
         this.rating = RoomRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
@@ -47,13 +44,12 @@ public class Invoice extends Serializable
         super();
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = new Date();
         this.rating = RoomRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
 
     public String print()
     {
-        return "\nTime= " + time + "\nBuyerId=" + buyerId + "\nRenterId=" + renterId;
+        return "\nBuyerId=" + buyerId + "\nRenterId=" + renterId;
     }
 }
