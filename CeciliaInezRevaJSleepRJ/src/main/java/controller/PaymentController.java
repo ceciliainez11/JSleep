@@ -40,13 +40,12 @@ public class PaymentController implements BasicGetController <Payment> {
         if (buyer == null||room == null||buyer.balance <= price||!Payment.availability (fromDate, toDate, room)) {
             return null;
         }
-        return null;
-//        Payment newPayment = new Payment(Date buyerId, Date renterId, Date roomId, Date fromDate, Date toDate);
-//        buyer.balance -= price;
-//        newPayment.status = Invoice.PaymentStatus.WAITING;
-//        Payment.makeBooking(fromDate, toDate, room);
-//        paymentTable.add(newPayment);
-//        return newPayment;
+        buyer.balance -= price;
+        Payment payment = null;
+
+
+        payment.status = Invoice.PaymentStatus.WAITING; Payment.makeBooking(fromDate, toDate, room);
+        paymentTable.add(payment); return payment;
     }
 
     @PostMapping("/cancel")
