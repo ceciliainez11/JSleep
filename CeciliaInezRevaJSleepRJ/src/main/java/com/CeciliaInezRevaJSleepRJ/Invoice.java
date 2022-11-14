@@ -29,7 +29,7 @@ public class Invoice extends Serializable
         FAILED, WAITING, SUCCESS
     }
 
-    protected Invoice(int id, int buyerId, int renterId)
+    protected Invoice(int buyerId, int renterId)
     {
         // initialise instance variables
         super();
@@ -39,7 +39,7 @@ public class Invoice extends Serializable
         this.status = PaymentStatus.WAITING;
     }
 
-    public Invoice(int id, Account buyer, Renter renter)
+    public Invoice(Account buyer, Renter renter)
     {
         super();
         this.buyerId = buyerId;
