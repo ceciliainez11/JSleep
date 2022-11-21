@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-// TODO sesuaikan dengan package Anda: package com.netlabJSleepGS.controller;
-
-
-// TODO sesuaikan dengan package Anda: import com.netlabJSleepGS.Account;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
