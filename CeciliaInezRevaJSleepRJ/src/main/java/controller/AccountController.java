@@ -124,7 +124,7 @@ public class AccountController implements BasicGetController<Account> {
     }
 
     //valid
-    @PostMapping("/{id}/registerStore")
+    @PostMapping("/{id}/registerRenter")
     Renter registerRenter(
             @PathVariable int id, @RequestParam String username, @RequestParam String address, @RequestParam String phoneNumber
     ) {
