@@ -1,8 +1,5 @@
 package com.CeciliaInezRevaJSleepRJ.controller;
 
-import com.CeciliaInezRevaJSleepRJ.controller.BasicGetController;
-import com.CeciliaInezRevaJSleepRJ.controller.AccountController;
-import com.CeciliaInezRevaJSleepRJ.controller.RoomController;
 import com.CeciliaInezRevaJSleepRJ.Payment;
 import com.CeciliaInezRevaJSleepRJ.*;
 import com.CeciliaInezRevaJSleepRJ.dbjson.JsonAutowired;
@@ -12,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @RestController
 @RequestMapping("/payment")

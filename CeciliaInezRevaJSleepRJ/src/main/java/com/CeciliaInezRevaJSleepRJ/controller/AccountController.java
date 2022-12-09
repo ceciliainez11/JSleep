@@ -34,29 +34,20 @@ public class AccountController implements BasicGetController<Account> {
         String generatedPassword = null;
 
         try {
-
             MessageDigest md = MessageDigest.getInstance("MD5");
-
             md.update(password.getBytes());
-
             byte[] bytes = md.digest();
-
             StringBuilder sb = new StringBuilder();
-
             for (int i = 0; i < bytes.length; i++) {
                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));}
 
             generatedPassword = sb.toString();
 
         } catch (NoSuchAlgorithmException e) {
-
             e.printStackTrace();}
-
         String hashedPassword = generatedPassword;
-
         return Algorithm.<Account>find(accountTable, temp -> (temp.email.equals(email))
                 && temp.password.equals(hashedPassword));
-
     }
     @GetMapping
     String index() {
@@ -77,7 +68,6 @@ public class AccountController implements BasicGetController<Account> {
             }
         }
         String genPass = null;
-
         try
         {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -92,9 +82,7 @@ public class AccountController implements BasicGetController<Account> {
             {
                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
             }
-
             genPass = sb.toString();
-
         } catch (NoSuchAlgorithmException e)
         {
             e.printStackTrace();
@@ -135,7 +123,6 @@ public class AccountController implements BasicGetController<Account> {
             {
                 account.renter = new Renter(username,
                         phoneNumber, address);
-
                 return (account.renter);
             }
 

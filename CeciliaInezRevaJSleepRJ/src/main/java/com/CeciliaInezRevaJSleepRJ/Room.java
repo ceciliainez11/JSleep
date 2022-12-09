@@ -5,41 +5,40 @@ import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
 import java.util.Date;
 import java.util.ArrayList;
 
-public class Room extends Serializable
-{
-    public String address;
-    public City city;
-    public ArrayList<Date> booked;
+public class Room extends Serializable {
+    public int accountId;
     public int size;
+    public String name;
+    public String address;
+    public ArrayList<Facility> facility = new ArrayList<>();
     public Price price;
     public BedType bedType;
-    public Facility facility;
-    public String name;
-    public int accountId;
-    
-    public Object write() {
-        return null;
+    public City city;
+    public ArrayList<Date> booked = new ArrayList<Date>();
+
+    public Room(int accountId, String name, int size, Price price,
+                ArrayList<Facility> facility, City city, String address, BedType bedType) {
+        this.accountId = accountId;
+        this.name = name;
+        this.size = size;
+        this.price = price;
+        this.facility = facility;
+        this.address = address;
+        this.city = city;
+        this.bedType = bedType;
     }
-    
-    public boolean read(String content) {
-        return false;
-    }
-    
-    public String toString(){
-        return "\nId: "+ this.id + "\nName : " + this.name +  "\nAddress: " + this.address + "\nSize: " + this.size + "\nFacility: " + this.facility + "\nBed Type: " + this.bedType + "\nCity: " + this.city  + "\nPrice: " + this.price;
-    }
-    
-    public Room (int accountid, String name, int size, Price price, Facility facility, City city, String address){
-       super();
-       this.accountId = accountid;
-       this.name = name;
-       this.size = size;
-       this.price = price;
-       this.facility = facility;
-       this.city = city;
-       this.address = address;
-       this.bedType = BedType.SINGLE;
-       this.booked = new ArrayList<Date>();
-       
+
+    @Override
+    public String toString() {
+        return "Room \n" +
+                "name='" + name + '\'' +
+                ", bedType=" + bedType +
+                ", size=" + size +
+                ", price=" + price.price +
+                ", discount=" + price.discount +
+                ", facility=" + facility +
+                ", city=" + city +
+                ", address='" + address + '\'' +
+                ", id=" + accountId;
     }
 }

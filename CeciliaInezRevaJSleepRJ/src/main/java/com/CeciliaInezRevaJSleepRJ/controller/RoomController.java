@@ -1,23 +1,30 @@
 package com.CeciliaInezRevaJSleepRJ.controller;
 
-import com.CeciliaInezRevaJSleepRJ.controller.AccountController;
-import com.CeciliaInezRevaJSleepRJ.controller.BasicGetController;
 import com.CeciliaInezRevaJSleepRJ.*;
 import com.CeciliaInezRevaJSleepRJ.dbjson.JsonAutowired;
 import com.CeciliaInezRevaJSleepRJ.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/room")
 public class RoomController implements BasicGetController<Room> {
-
     public static @JsonAutowired(value = Room.class , filepath = "src\\json\\room.json") JsonTable<Room> roomTable;
 
-
+    @Override
     public JsonTable<Room> getJsonTable() {
         return roomTable;
+    }
+
+    @GetMapping("/getAllRoom")
+    List<Room> getAllRoom (
+            @RequestParam int page,
+            @RequestParam int pageSize
+    ) {
+        return Algorithm.<Room>paginate(roomTable, page, pageSize, Objects::nonNull);
     }
 
     @GetMapping("/{id}/renter")
@@ -30,26 +37,22 @@ public class RoomController implements BasicGetController<Room> {
         return Algorithm.paginate(roomTable, page, pageSize, roomTable -> (roomTable.id == id));
     }
     @PostMapping("/create")
-    public Room Create(
+    public Room create(
             @RequestParam int accountId,
             @RequestParam String name,
             @RequestParam int size,
             @RequestParam int price,
-            @RequestParam Facility facility,
+            @RequestParam ArrayList<Facility> facility,
             @RequestParam City city,
-            @RequestParam String address
+            @RequestParam String address,
+            @RequestParam BedType bedType
     )
     {
-
-        boolean tempAccount = Algorithm.<Account>exists(AccountController.accountTable, temp -> temp.id == accountId && temp.renter!= null);
-        System.out.println(tempAccount);
-        if(!tempAccount){
-            return null;
+        if (Algorithm.<Account>exists(AccountController.accountTable, acc -> acc.id == accountId && acc.renter != null)) {
+            Room newRoom = new Room(accountId, name, size, new Price(price), facility, city, address, bedType);
+            roomTable.add(newRoom);
+            return newRoom;
         }
-        Room tempRoom = new Room(accountId, name, size, new Price(price), facility, city, address);
-        roomTable.add(tempRoom);
-        return tempRoom;
-//        roomTable.add(new Room(accountId, name, size, new Price(price), facility, city, address));
-//        return new Room(accountId, name, size, new Price(price), facility, city, address);
+        return null;
     }
 }

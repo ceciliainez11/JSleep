@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Comparator;
 import java.util.List;
 
-@RestController
 public interface BasicGetController <T extends Serializable> {
     @GetMapping("/page")
     public default List<T> getPage(@RequestParam int page, @RequestParam int pageSize){

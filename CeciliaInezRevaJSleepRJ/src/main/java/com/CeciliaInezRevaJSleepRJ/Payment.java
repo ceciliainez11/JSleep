@@ -14,6 +14,10 @@ public class Payment extends Invoice {
     public Date to;
     public Date from;
     private int roomId;
+    public int getRoomId()
+    {
+        return roomId;
+    }
 
 
     public Payment(int buyerId, int renterId, int roomId, Date from, Date to){
@@ -87,10 +91,6 @@ public class Payment extends Invoice {
     public String print(){
 
         return "To : "  + "\nFrom : "  + "\nRoom ID : " + this.roomId;
-    }
-
-    public int getRoomId(){
-        return roomId;
     }
 }
 

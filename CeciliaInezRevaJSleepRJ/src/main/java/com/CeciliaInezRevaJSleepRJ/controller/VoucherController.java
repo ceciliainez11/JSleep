@@ -1,6 +1,5 @@
 package com.CeciliaInezRevaJSleepRJ.controller;
 
-import com.CeciliaInezRevaJSleepRJ.controller.BasicGetController;
 import com.CeciliaInezRevaJSleepRJ.*;
 import com.CeciliaInezRevaJSleepRJ.dbjson.JsonAutowired;
 import com.CeciliaInezRevaJSleepRJ.dbjson.JsonTable;
