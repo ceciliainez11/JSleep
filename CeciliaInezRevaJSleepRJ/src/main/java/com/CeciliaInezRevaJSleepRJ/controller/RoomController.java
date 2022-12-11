@@ -12,7 +12,7 @@ import java.util.Objects;
 @RequestMapping("/room")
 
 public class RoomController implements BasicGetController<Room> {
-    public static @JsonAutowired(value = Room.class , filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\JSleep\\JSleep\\src\\json\\account.json") JsonTable<Room> roomTable;
+    public static @JsonAutowired(value = Room.class , filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\JSleep\\JSleep\\src\\json\\room.json") JsonTable<Room> roomTable;
 
     @Override
     public JsonTable<Room> getJsonTable() {
