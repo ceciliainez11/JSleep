@@ -15,6 +15,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 @RestController
 @RequestMapping("/payment")
 public class PaymentController implements BasicGetController<Payment> {
@@ -40,17 +42,28 @@ public class PaymentController implements BasicGetController<Payment> {
         Room room = Algorithm.<Room>find(RoomController.roomTable, temp -> temp.id == roomId);
         System.out.println(buyer.id);
         System.out.println(room.id);
-        double price;
+        double price, priceTest;
         price = room.price.price;
+//        priceTest = room.price.price * Payment.calcDays(from, to);
 
-        System.out.println("Harga kamar : " + price);
-        System.out.println("Saldo : " + buyer.balance);
+
+//        System.out.println("Harga kamar : " + price);
+//        System.out.println("Harga Kamar Update : " + priceTest);
+
 
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date fromDate = sdf.parse(from);
         Date toDate = sdf.parse(to);
 
+        long timeDiff = Math.abs(toDate.getTime() - fromDate.getTime());
+        long daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
+
+        price = room.price.price * daysDiff;
+
+        System.out.println("Days Diff = " + daysDiff);
+        System.out.println("Harga Kamar Asli : " + price);
+        System.out.println("Saldo : " + buyer.balance);
         System.out.println(fromDate);
         System.out.println(toDate);
         System.out.println(Payment.availability(fromDate, toDate, room));
@@ -62,6 +75,8 @@ public class PaymentController implements BasicGetController<Payment> {
             return null;
         }
         Payment paymentCheck = new Payment(buyerId, renterId, roomId, fromDate, toDate);
+
+
         buyer.balance -= price;
 
         paymentCheck.status = Invoice.PaymentStatus.WAITING;
@@ -84,9 +99,12 @@ public class PaymentController implements BasicGetController<Payment> {
             Room room = Algorithm.<Room>find(RoomController.roomTable, roomTemp -> roomTemp.id == paymentCheck.getRoomId());
             Account buyerCancel = Algorithm.<Account>find(AccountController.accountTable, accountTemp -> accountTemp.id == paymentCheck.buyerId);
 
-            paymentCheck.status = Invoice.PaymentStatus.FAILED;
-            buyerCancel.balance += room.price.price;
+            long timeDiff = Math.abs(paymentCheck.to.getTime() - paymentCheck.from.getTime());
+            long daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
 
+            paymentCheck.status = Invoice.PaymentStatus.FAILED;
+            buyerCancel.balance += room.price.price * daysDiff;
+            System.out.println(buyerCancel.balance);
             return true;
         }
     }

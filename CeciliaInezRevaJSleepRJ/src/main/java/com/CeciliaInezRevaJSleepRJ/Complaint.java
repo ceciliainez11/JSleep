@@ -3,10 +3,9 @@ package com.CeciliaInezRevaJSleepRJ;
 import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
 
 /**
- * Write a description of class Complaint here.
+ * A class that represents a complaint made by a customer.
  *
- * @author (Cecilia Inez Reva - 2106636994)
- * @version TUTAM MODUL 3
+ * @author Cecilia Inez Reva
  */
 public class Complaint extends Serializable
 {
@@ -15,7 +14,11 @@ public class Complaint extends Serializable
     public String date;
 
     /**
-     * Constructor for objects of class Complaint
+     * Constructor for objects of class Complaint.
+     *
+     * @param id The ID of the complaint.
+     * @param date The date the complaint was made.
+     * @param desc The description of the complaint.
      */
     public Complaint(int id, String date, String desc)
     {
@@ -24,6 +27,11 @@ public class Complaint extends Serializable
         this.desc = desc;
     }
 
+    /**
+     * Returns a string representation of the complaint.
+     *
+     * @return A string representation of the complaint.
+     */
     public String toString()
     {
         return "\n\nID: " + id + "\nDate: " + date + "\nDesc: " + desc;

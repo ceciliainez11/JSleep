@@ -40,4 +40,14 @@ public class RoomController implements BasicGetController<Room> {
     List<Room> getRoomByRenter(@PathVariable int id, @RequestParam int page, @RequestParam int pageSize) {
         return Algorithm.paginate(roomTable, page, pageSize, roomTable -> (roomTable.id == id));
     }
+
+    @GetMapping("/filterByPrice")
+    public List<Room> filterByPrice(
+            @RequestParam int page,
+            @RequestParam int pageSize,
+            @RequestParam int min,
+            @RequestParam int max
+    ){
+        return Algorithm.<Room>paginate(getJsonTable(),page,pageSize,i -> ((i.price.price >= min) && (i.price.price <= max)));
+    }
 }

@@ -5,6 +5,18 @@ import java.util.regex.Pattern;
 
 import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
 
+
+/**
+ * A class representing an account, with a name, email, password, and balance.
+ * The email and password must match the provided regular expressions for
+ * validation to succeed.
+ *
+ * @author Cecilia Inez Reva
+ *
+ * @extends Serializable
+ * The Account class implements the Serializable interface, allowing
+ * instances of the class to be written to and read from streams.
+ */
 public class Account extends Serializable
 {
     // instance variables
@@ -12,6 +24,9 @@ public class Account extends Serializable
     public static final String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
     public String name;
     public String email;
+    /**
+     * The balance of the account.
+     */
     public double balance;
     public String password;
     public Renter renter;

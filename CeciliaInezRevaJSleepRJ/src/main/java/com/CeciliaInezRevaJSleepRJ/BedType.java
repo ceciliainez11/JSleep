@@ -2,10 +2,9 @@ package com.CeciliaInezRevaJSleepRJ;
 
 
 /**
- * Enumeration class BedType - write a description of the enum class here
+ * An enumeration of the different types of beds.
  *
- * @author (Cecilia Inez Reva - 2106636994)
- * @version TUTAM MODUL 3
+ * @author Cecilia Inez Reva
  */
 public enum BedType
 {

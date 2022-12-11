@@ -5,6 +5,14 @@ import com.CeciliaInezRevaJSleepRJ.dbjson.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+
+ The Renter class represents a renter of a property.
+
+ @author Cecilia Inez Reva
+
+ @version 1.0
+ */
 public class Renter extends Serializable {
     public static final String REGEX_NAME = "^[A-Z]{1}\\w{4,20}$";
     public static final String REGEX_PHONE = "^\\d{9,12}$";
@@ -14,7 +22,11 @@ public class Renter extends Serializable {
     public String username;
 
     /**
-     * Constructor for objects of class Renter
+
+     Constructs a new Renter with the specified username, phone number and address.
+     @param username the username of the renter
+     @param phoneNumber the phone number of the renter
+     @param address the address of the renter
      */
     public Renter(String username, String phoneNumber, String address)
     {
@@ -22,6 +34,13 @@ public class Renter extends Serializable {
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
+
+    /**
+
+     Validates the renter's username and phone number.
+
+     @return true if the username and phone number are valid, false otherwise
+     */
     public boolean validate()
     {
         Pattern patternName = Pattern.compile(this.REGEX_NAME);
