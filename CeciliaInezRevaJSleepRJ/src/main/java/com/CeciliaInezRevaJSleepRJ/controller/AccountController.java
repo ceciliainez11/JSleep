@@ -24,7 +24,7 @@ public class AccountController implements BasicGetController<Account> {
     public static final Pattern REGEX_PATTERN_EMAIL = Pattern.compile(REGEX_EMAIL);
 
     public static final Pattern REGEX_PATTERN_PASSWORD = Pattern.compile(REGEX_PASSWORD);
-    public static @JsonAutowired(value = Account.class, filepath = "src\\json\\account.json")
+    public static @JsonAutowired(value = Account.class, filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\JSleep\\JSleep\\src\\json\\account.json")
     JsonTable<Account> accountTable;
 
 

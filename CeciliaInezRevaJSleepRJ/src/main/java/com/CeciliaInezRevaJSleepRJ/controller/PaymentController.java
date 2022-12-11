@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/payment")
 public class PaymentController implements BasicGetController<Payment> {
 
-    public static @JsonAutowired(value = Payment.class , filepath = "src\\json\\payment.json") JsonTable<Payment> paymentTable;
+    public static @JsonAutowired(value = Payment.class , filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\JSleep\\JSleep\\src\\json\\account.json") JsonTable<Payment> paymentTable;
 
 
     public JsonTable<Payment> getJsonTable() {

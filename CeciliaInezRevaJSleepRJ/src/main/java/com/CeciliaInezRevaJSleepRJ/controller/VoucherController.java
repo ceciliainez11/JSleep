@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/voucher")
 
 public class VoucherController implements BasicGetController<Voucher> {
-    public static @JsonAutowired(value = Voucher.class , filepath = "src\\json\\voucher.json") JsonTable<Voucher> voucherTable;
+    public static @JsonAutowired(value = Voucher.class , filepath = "C:\\Users\\cecil\\Documents\\kuliah\\semester 3\\JSleep\\JSleep\\src\\json\\account.json") JsonTable<Voucher> voucherTable;
 
     @Override
     public JsonTable<Voucher> getJsonTable() {
