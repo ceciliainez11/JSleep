@@ -1,7 +1,7 @@
 package com.CeciliaInezRevaJSleepRJ.controller;
 
-import com.CeciliaInezRevaJSleepRJ.*;
 import com.CeciliaInezRevaJSleepRJ.dbjson.JsonAutowired;
+import com.CeciliaInezRevaJSleepRJ.*;
 import com.CeciliaInezRevaJSleepRJ.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,8 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/voucher")
-public class VoucherController implements BasicGetController<Voucher> {
 
+public class VoucherController implements BasicGetController<Voucher> {
     public static @JsonAutowired(value = Voucher.class , filepath = "src\\json\\voucher.json") JsonTable<Voucher> voucherTable;
 
     @Override
@@ -29,8 +29,7 @@ public class VoucherController implements BasicGetController<Voucher> {
         Voucher tempVoucher = Algorithm.<Voucher>find(voucherTable, temp -> temp.id == id);
         if(tempVoucher == null){
             return false;
-        }
-        return tempVoucher.isUsed();
+        } return tempVoucher.isUsed();
     }
 
 
@@ -50,11 +49,7 @@ public class VoucherController implements BasicGetController<Voucher> {
     }
 
     @GetMapping("/getAvailable")
-    List<Voucher> getAvailable(
-            @PathVariable int page,
-            @RequestParam int pageSize
-    )
-    {
+    List<Voucher> getAvailable(@PathVariable int page, @RequestParam int pageSize) {
         return Algorithm.<Voucher>paginate(voucherTable, page, pageSize, temp -> !temp.isUsed());
     }
 }
