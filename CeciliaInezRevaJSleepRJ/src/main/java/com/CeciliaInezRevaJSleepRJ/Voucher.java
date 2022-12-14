@@ -92,14 +92,6 @@ public class Voucher extends Serializable
         }
     }
 
-    /**
-
-     Applies this voucher to the specified price and returns the new price.
-
-     @param price the price to apply the voucher to
-
-     @return the new price after the voucher has been applied
-     */
     public boolean read(String Content){
         return false;
     }

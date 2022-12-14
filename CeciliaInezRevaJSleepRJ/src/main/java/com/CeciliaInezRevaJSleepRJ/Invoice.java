@@ -29,6 +29,12 @@ public class Invoice extends Serializable
         FAILED, WAITING, SUCCESS
     }
 
+    /**
+     * Constructs a new invoice with the given buyer and renter ID.
+     *
+     * @param buyerId The ID of the buyer
+     * @param renterId The ID of the renter
+     */
     protected Invoice(int buyerId, int renterId)
     {
         // initialise instance variables
@@ -39,6 +45,12 @@ public class Invoice extends Serializable
         this.status = PaymentStatus.WAITING;
     }
 
+    /**
+     * Constructs a new invoice with the given buyer and renter accounts.
+     *
+     * @param buyer The buyer's account
+     * @param renter The renter's account
+     */
     public Invoice(Account buyer, Renter renter)
     {
         super();

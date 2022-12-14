@@ -9,23 +9,38 @@ package com.CeciliaInezRevaJSleepRJ;
 =======
  * @version
  */
-
 public class Price{
     // public double rebate;
     // public int discount;
     public double price;
     public double discount;
-    
+
+    /**
+     * Constructs a Price object with the given price and no discount.
+     *
+     * @param price the price of the product
+     */
     public Price(double price) {
         this.price = price;
         this.discount = 0;
     }
-    
+
+    /**
+     * Constructs a Price object with the given price and discount.
+     *
+     * @param price the price of the product
+     * @param discount the discount applied to the price
+     */
     public Price(double price, double discount) {
         this.price = price;
         this.discount = discount;
     }
-    
+
+    /**
+     * Returns the price of the product.
+     *
+     * @return the price of the product
+     */
     public String toString()
     {
         return "" + price; //"\nDiscount: " + discount;

@@ -6,7 +6,7 @@ import java.util.*;
  * This class provides static methods for counting, finding, and collecting elements in arrays and iterable collections.
  * The methods support searching for elements using either a value or a predicate.
  *
- * @param <T> the type of the elements in the arrays and collections
+ * @param </T> the type of the elements in the arrays and collections
  */
 public class Algorithm {
 
